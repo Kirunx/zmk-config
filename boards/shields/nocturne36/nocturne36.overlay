@@ -46,7 +46,7 @@
 /* ENCODER  
  * Uses D0 (A) and D1 (B)
  */
-&kscan {
+&default_kscan {
     encoder0: encoder_0 {
         compatible = "zmk,kscan-encoder";
         a-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;  /* D0 → P0.06 */
