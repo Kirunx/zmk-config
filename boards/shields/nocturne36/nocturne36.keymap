@@ -1,0 +1,58 @@
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        /* --- Layer 0 --- */
+        default_layer {
+            bindings = <
+                &kp Q      &kp W      &kp E      &kp R      &kp T
+                &kp A      &kp S      &kp D      &kp F      &kp G
+                &kp Z      &kp X      &kp C      &kp V      &kp B
+                             &kp M      &kp COMMA &kp DOT
+            >;
+        }
+
+        /* --- Layer 1 --- */
+        layer_1 {
+            bindings = <
+                &kp N1     &kp N2     &kp N3     &kp N4     &kp N5
+                &kp N6     &kp N7     &kp N8     &kp N9     &kp N0
+                &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT   &kp BSLH
+                              &kp HOME &kp UP    &kp END
+            >;
+        }
+    };
+};
+
+/ {
+    behaviors {
+        encoder_cw: encoder_cw {
+            compatible = "zmk,behavior-momentary";
+            #binding-cells = <0>;
+            binding = <&kp VOL_UP>;
+        };
+
+        encoder_ccw: encoder_ccw {
+            compatible = "zmk,behavior-momentary";
+            #binding-cells = <0>;
+            binding = <&kp VOL_DOWN>;
+        };
+    };
+
+    encoders {
+        encoder0 {
+            label = "encoder0";
+            steps = <1>;
+            cw = <&encoder_cw>;
+            ccw = <&encoder_ccw>;
+        };
+    };
+};
+
+/ {
+    display_status {
+        compatible = "zmk,display-status";
+    };
+};
+
