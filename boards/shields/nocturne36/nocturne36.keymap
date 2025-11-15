@@ -24,7 +24,7 @@
                 &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT   &kp BSLH
                               &kp HOME &kp UP    &kp END
             >;
-        }
+        };
     };
 };
 
