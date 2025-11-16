@@ -2,7 +2,20 @@
 #include <dt-bindings/zmk/bt.h>
 #include <behaviors.dtsi>
 
+
+
+
+
+
+
 / {
+    behaviors {
+        encoder: encoder{
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp VOL_UP>, <&kp VOL_DOWN>;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
@@ -14,6 +27,7 @@
                 &kp Z      &kp X      &kp C      &kp V      &kp B
                              &kp M      &kp COMMA &kp DOT
             >;
+            sensor-bindings = <&encoder>;
         };
 
         /* --- Layer 1 --- */
@@ -28,34 +42,5 @@
     };
 };
 
-/ {
-    behaviors {
-        encoder_cw: encoder_cw {
-            compatible = "zmk,behavior-momentary";
-            #binding-cells = <0>;
-            binding = <&kp VOL_UP>;
-        };
 
-        encoder_ccw: encoder_ccw {
-            compatible = "zmk,behavior-momentary";
-            #binding-cells = <0>;
-            binding = <&kp VOL_DOWN>;
-        };
-    };
-
-    encoders {
-        encoder0 {
-            label = "encoder0";
-            steps = <1>;
-            cw = <&encoder_cw>;
-            ccw = <&encoder_ccw>;
-        };
-    };
-};
-
-/ {
-    display_status {
-        compatible = "zmk,display-status";
-    };
-};
 
