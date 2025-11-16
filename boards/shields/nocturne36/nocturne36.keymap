@@ -11,9 +11,9 @@
 / {
     behaviors {
         encoder: encoder{
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&kp VOL_UP>, <&kp VOL_DOWN>;
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
         };
     };
     keymap {
@@ -27,7 +27,7 @@
                 &kp Z      &kp X      &kp C      &kp V      &kp B
                              &kp M      &kp COMMA &kp DOT
             >;
-            sensor-bindings = <&encoder>;
+            sensor-bindings = <&encoder PG_UP PG_DN>;
         };
 
         /* --- Layer 1 --- */
