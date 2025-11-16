@@ -2,3 +2,5 @@ if SHIELD_NOCTURNE36
 
 config ZMK_KEYBOARD_NAME
     default "Nocturne36"
+
+endif
