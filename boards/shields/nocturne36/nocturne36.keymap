@@ -10,7 +10,7 @@
 
 / {
     behaviors {
-        encoder: encoder{
+        encoder_behavior: encoder_behavior{
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -27,7 +27,7 @@
                 &kp Z      &kp X      &kp C      &kp V      &kp B
                              &kp M      &kp COMMA &kp DOT
             >;
-            sensor-bindings = <&encoder PG_UP PG_DN>;
+            sensor-bindings = <&encoder_behavior PG_UP PG_DN>;
         };
 
         /* --- Layer 1 --- */
