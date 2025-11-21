@@ -1,7 +1,7 @@
 #include "nocturne36.dtsi"
 &default_transform{
     col-offset = <5>;
-}
+};
 &kscan0 {
     col-gpios = 
             <&pro_micro 10 GPIO_ACTIVE_HIGH>,  /* col0 → D10 → P0.09 */
