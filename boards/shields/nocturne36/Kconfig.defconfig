@@ -1,22 +1,26 @@
 config ZMK_KEYBOARD_NAME
     default "Nocturne36"
 
-# Enable split
-config ZMK_SPLIT
-    default y
 
-# Left is central
 if SHIELD_NOCTURNE36_LEFT
+
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 endif
 
-# Enable display and drivers on both halves
-config ZMK_DISPLAY
+if SHIELD_NOCTURNE36_RIGHT
+
+config ZMK_SPLIT
     default y
+
+endif
+
+if ZMK_DISPLAY
 
 config I2C
     default y
 
 config SSD1306
     default y
+
+endif
