@@ -36,8 +36,8 @@
     
     left_encoder: ec11_0 {
         compatible = "alps,ec11";
-        a-gpios = <&pro_micro 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  /* D0 → P0.06 */
-        b-gpios = <&pro_micro 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  /* D1 → P0.08 */
+        a-gpios = <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* D0 → P0.06 */
+        b-gpios = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* D1 → P0.08 */
         steps = <4>;
         status = "okay";
     };
@@ -63,7 +63,7 @@
     };
 };
 &i2c0 {
-    //compatible = "nordic,nrf-twim";
+    compatible = "nordic,nrf-twim";
     status = "okay";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
@@ -79,8 +79,8 @@
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
-        //segment-remap;
-        //com-invdir;
+        segment-remap;
+        com-invdir;
         //com-sequential;
         //inversion-on;
         prechargep = <0x22>;
