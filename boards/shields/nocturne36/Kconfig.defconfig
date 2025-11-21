@@ -1,6 +1,26 @@
-if SHIELD_NOCTURNE36
+if SHIELD_NOCTURNE36_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "Nocturne36"
 
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
 endif
+
+if SHIELD_NOCTURNE36_RIGHT
+
+
+config ZMK_SPLIT
+    default y
+
+if ZMK_DISPLAY
+
+config I2C
+    default y
+
+config SSD1306
+    default y
+
+endif
+
+endif # ZMK_DISPLAY

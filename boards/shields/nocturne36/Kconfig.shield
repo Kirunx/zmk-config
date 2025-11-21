@@ -1,2 +1,4 @@
-config SHIELD_NOCTURNE36
-    def_bool $(shields_list_contains, nocturne36)
+config SHIELD_NOCTURNE36_LEFT
+    def_bool $(shields_list_contains, nocturne36_left)
+config SHIELD_NOCTURNE36_RIGHT
+    def_bool $(shields_list_contains, nocturne36_right)
