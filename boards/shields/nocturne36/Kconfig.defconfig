@@ -15,15 +15,25 @@ config ZMK_SPLIT
 
 endif
 
-if ZMK_DISPLAY
+#if ZMK_DISPLAY
+
+#config I2C
+#	default y
+
+#config SSD1306
+#	default y
+
+#endif # ZMK_DISPLAY
+
+
+config ZMK_DISPLAY
+    default y
 
 config I2C
-	default y
+    default y
 
 config SSD1306
-	default y
-
-endif # ZMK_DISPLAY
+    default y
 
 if LVGL
 
