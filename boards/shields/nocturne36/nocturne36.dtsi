@@ -14,10 +14,10 @@
 
         
         row-gpios = 
-            <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  /* row0 → D4 → P0.22 */
-            <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  /* row1 → D3 → P0.20 */
-            <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  /* row2 → D2 → P0.17 */
-            <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  /* row3 → D5 → P0.24 */
+            <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  /* row0 → D4 → P0.22 */
+            <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  /* row1 → D3 → P0.20 */
+            <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  /* row2 → D2 → P0.17 */
+            <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  /* row3 → D5 → P0.24 */
     };
 
     default_transform: matrix_transform {
@@ -36,9 +36,9 @@
     
     left_encoder: ec11_0 {
         compatible = "alps,ec11";
-        a-gpios = <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* D0 → P0.06 */
-        b-gpios = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* D1 → P0.08 */
-        steps = <4>;
+        a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  
+        b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  
+        steps = <20>;
         status = "okay";
     };
     sensors {
