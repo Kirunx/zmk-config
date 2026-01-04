@@ -33,14 +33,16 @@ config ZMK_DISPLAY
     select LV_FONT_MONTSERRAT_16
     select LV_USE_LABEL
     select LV_USE_IMG
+
 config I2C
     default y
 
 config SSD1306
     default y
 
-if LVGL
-
+# if LVGL
+config LVGL
+    default y
 config LV_Z_VDB_SIZE
     default 64
 
@@ -55,4 +57,4 @@ choice LV_COLOR_DEPTH
     default LV_COLOR_DEPTH_1
 endchoice
 
-endif # LVGL
+# endif # LVGL
