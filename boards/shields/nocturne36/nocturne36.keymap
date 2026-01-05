@@ -15,12 +15,6 @@
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&kp>;
         };
-        mouse_scroll: sensor_scroll {
-        	compatible = "zmk,behavior-sensor-rotate-var";
-        	#sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-            tap-ms = <40>;
-		};
     };
     keymap {
         compatible = "zmk,keymap";
@@ -33,7 +27,7 @@
                 &kp Z      &kp X      &kp C      &kp V      &kp B           &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH
                                       &kp C_MUTE &kp COMMA  &kp SPACE       &kp TAB    &kp COMMA  &kp SPACE 
             >;
-            sensor-bindings = <&mouse_scroll SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&encoder_behavior PG_UP PG_DN>;
         };
 
         /* --- Layer 1 --- */
