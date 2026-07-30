@@ -4,15 +4,7 @@
 
 / {
     behaviors {
-        // Volume Encoder: Counter-Clockwise = Vol Down, Clockwise = Vol Up
-        vol_encoder: vol_encoder {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        // Scroll Encoder: Counter-Clockwise = Page Up, Clockwise = Page Down
-        scroll_encoder: scroll_encoder {
+        encoder_behavior: encoder_behavior{
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -28,31 +20,31 @@
                 &kp Q      &kp W      &kp E      &kp R      &kp T             &kp Y      &kp U      &kp I      &kp O      &kp P
                 &kp A      &kp S      &kp D      &kp F      &kp G             &kp H      &kp J      &kp K      &kp L      &kp SEMI
                 &kp Z      &kp X      &kp C      &kp V      &kp B             &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH
-                                   &kp LCTRL  &kp SPACE  &mo 1         &kp ENTER  &kp BACKSPACE &kp RALT
+                                   &kp LCTRL  &kp SPACE  &mo 1         &mo 2 ENTER  &kp BACKSPACE &kp RALT
             >;
-            sensor-bindings = <&vol_encoder C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&encoder_behavior PG_UP PG_DN>;
         };
 
         /* --- Layer 1: Function/Nav (Held via &mo 1) --- */
         fn_layer {
-            bindings = <
-                &kp N1     &kp N2     &kp N3     &kp N4     &kp N5            &kp N6     &kp N7     &kp N8     &kp N9     &kp N0
-                &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT         &kp CARET  &kp AMPS   &kp ASTR   &kp LPAR   &kp RPAR
-                &kp CAPS   &kp LGUI   &kp LALT   &kp ESC    &kp DEL           &kp INS    &kp HOME   &kp UP     &kp END    &kp PG_UP
-                                   &kp LSHIFT &mo 2   &trans       &trans   &kp LEFT   &kp RIGHT
+           bindings = <
+                &kp Q      &kp W      &kp E      &kp R      &kp T             &kp Y      &kp U      &kp I      &kp O      &kp P
+                &kp A      &kp S      &kp D      &kp F      &kp G             &kp H      &kp J      &kp K      &kp L      &kp SEMI
+                &kp Z      &kp X      &kp C      &kp V      &kp B             &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH
+                                   &kp LCTRL  &kp SPACE  &trans         &trans  &kp BACKSPACE &kp RALT
             >;
-            sensor-bindings = <&scroll_encoder PG_UP PG_DN>;
+            sensor-bindings = <&encoder_behavior PG_UP PG_DN>;
         };
 
         /* --- Layer 2: Config (Bluetooth, Reset, Bootloader) --- */
         config_layer {
             bindings = <
-                &kp F1     &kp F2     &kp F3     &kp F4     &kp F5            &kp F6     &kp F7     &kp F8     &kp F9     &kp F10
-                &kp F11    &kp F12    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2  &out OUT_TOG &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp PSCRN
-                &kp CAPS   &kp LGUI   &kp LALT   &kp ESC    &kp DEL           &kp INS    &kp HOME   &kp UP     &kp END    &kp PG_UP
-                                   &kp LSHIFT &trans &trans   &trans   &kp LEFT   &kp RIGHT
+               &kp Q      &kp W      &kp E      &kp R      &kp T             &kp Y      &kp U      &kp I      &kp O      &kp P
+                &kp A      &bt BT_CLR      &&bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2             &kp H      &kp J      &kp K      &kp L      &kp SEMI
+                &kp Z      &kp X      &kp C      &kp V      &kp B             &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH
+                                   &kp LCTRL  &kp SPACE  &trans         &trans  &kp BACKSPACE &kp RALT
             >;
-            sensor-bindings = <&scroll_encoder PG_UP PG_DN>;
+            sensor-bindings = <&encoder_behavior PG_UP PG_DN>;
         };
     };
 };
